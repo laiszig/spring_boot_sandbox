@@ -12,15 +12,17 @@ import java.util.List;
 public class BookController {
 
     private List<Book> books = new ArrayList<>();
+    private int id = 1;
 
     @GetMapping("/books")
     public List<Book> getAll() {
         return books;
     }
 
-    @PostMapping("/create")
+    @PostMapping("/books")
     public Book createBook(@RequestBody Book book) {
         books.add(book);
+        book.setId(id++);
         return book;
     }
 }
