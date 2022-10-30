@@ -25,9 +25,9 @@ public class BookController {
 
     @GetMapping("/books/{id}")
     public Book getBook(@PathVariable int id) {
-        for (int i = 0; i < books.size(); i++) {
-            if (id == books.get(i).getId()) {
-                return books.get(i);
+        for(Book book : books) {
+            if (id == book.getId()) {
+                return book;
             }
         }
         return null; //Temp
