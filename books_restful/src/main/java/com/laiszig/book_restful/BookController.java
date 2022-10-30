@@ -1,9 +1,6 @@
 package com.laiszig.book_restful;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,5 +21,15 @@ public class BookController {
         books.add(book);
         book.setId(id++);
         return book;
+    }
+
+    @GetMapping("/books/{id}")
+    public Book getBook(@PathVariable int id) {
+        for (int i = 0; i < books.size(); i++) {
+            if (id == books.get(i).getId()) {
+                return books.get(i);
+            }
+        }
+        return null; //Temp
     }
 }
