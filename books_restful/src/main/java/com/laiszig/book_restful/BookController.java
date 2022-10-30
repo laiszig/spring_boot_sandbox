@@ -19,10 +19,10 @@ public class BookController {
     }
 
     @PostMapping("/books")
-    public Book createBook(@RequestBody Book book) {
+    public ResponseEntity<Book> createBook(@RequestBody Book book) {
         books.add(book);
         book.setId(id++);
-        return book;
+        return new ResponseEntity<>(book, HttpStatus.CREATED);
     }
 
     @GetMapping("/books/{id}")
