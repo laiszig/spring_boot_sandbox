@@ -1,5 +1,7 @@
 package com.laiszig.book_restful;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -24,12 +26,12 @@ public class BookController {
     }
 
     @GetMapping("/books/{id}")
-    public Book getBook(@PathVariable int id) {
+    public ResponseEntity<Book> getBook(@PathVariable int id) {
         for(Book book : books) {
             if (id == book.getId()) {
-                return book;
+                return new ResponseEntity<>(book, HttpStatus.OK);
             }
         }
-        return null; //Temp
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 }
