@@ -1,7 +1,7 @@
 package com.laiszig.film_rest_api_mysql;
 
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,6 +35,16 @@ public class FilmController  {
             Film film = filmRepository.findById(id).get();
             return new ResponseEntity<>(film, HttpStatus.OK);
         } catch (NoSuchElementException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @DeleteMapping("/films/{id}")
+    public ResponseEntity<Film> deleteFilm (@PathVariable int id) {
+        try {
+            filmRepository.deleteById(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (EmptyResultDataAccessException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
