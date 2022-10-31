@@ -28,7 +28,18 @@ public class BookController {
     @GetMapping("/books/{id}")
     public ResponseEntity<Book> getBook(@PathVariable int id) {
         for(Book book : books) {
-            if (id == book.getId()) {
+            if(id == book.getId()) {
+                return new ResponseEntity<>(book, HttpStatus.OK);
+            }
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+
+    @DeleteMapping("/books/{id}")
+    public ResponseEntity<Book> deleteBook (@PathVariable int id) {
+        for(Book book : books) {
+            if(id == book.getId()) {
+                books.remove(book);
                 return new ResponseEntity<>(book, HttpStatus.OK);
             }
         }
