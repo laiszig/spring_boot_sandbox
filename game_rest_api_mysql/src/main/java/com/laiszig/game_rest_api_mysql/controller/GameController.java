@@ -6,7 +6,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Book;
 import java.util.List;
 
 @RestController
@@ -28,6 +27,11 @@ public class GameController {
     @GetMapping
     public List<Game> findGames(){
         return gameService.getAllGames();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Game> findGame(@PathVariable("id") Long id){
+        return new ResponseEntity<>(gameService.getGameById(id), HttpStatus.OK);
     }
 }
 

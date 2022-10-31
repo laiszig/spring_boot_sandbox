@@ -1,11 +1,13 @@
 package com.laiszig.game_rest_api_mysql.service.impl;
 
 import com.laiszig.game_rest_api_mysql.entity.Game;
+import com.laiszig.game_rest_api_mysql.exception.ResourceNotFoundException;
 import com.laiszig.game_rest_api_mysql.repository.GameRepository;
 import com.laiszig.game_rest_api_mysql.service.GameService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class GameServiceImpl implements GameService {
@@ -24,6 +26,18 @@ public class GameServiceImpl implements GameService {
     @Override
     public List<Game> getAllGames() {
         return gameRepository.findAll();
+    }
+
+    @Override
+    public Game getGameById(Long id) {
+//        Optional<Game> game = gameRepository.findById(id);
+//        if(game.isPresent()) {
+//            return game.get();
+//        } else {
+//            throw new ResourceNotFoundException("Game", "Id", id);
+//        }
+        return gameRepository.findById(id).orElseThrow(() ->
+                new ResourceNotFoundException("Game", "Id", id));
     }
 }
 

@@ -9,6 +9,8 @@ public interface GameService {
     Game saveGame(Game game);
 
     List<Game> getAllGames();
+
+    Game getGameById(Long id);
 }
 
 
