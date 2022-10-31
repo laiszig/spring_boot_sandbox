@@ -24,7 +24,7 @@ public class FilmController  {
     }
 
     @PostMapping("/films")
-    public ResponseEntity<Film> addFilm(@RequestBody Film film){
+    public ResponseEntity<Film> saveFilm(@RequestBody Film film){
         filmRepository.save(film);
         return new ResponseEntity<>(film, HttpStatus.CREATED);
     }
@@ -46,6 +46,18 @@ public class FilmController  {
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (EmptyResultDataAccessException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PutMapping("/films/{id}")
+    public ResponseEntity<Film> updateFilm (@RequestBody Film film, @PathVariable int id) {
+        try {
+            filmRepository.findById(id).get();
+            film.setId(id);
+            saveFilm(film);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 }
