@@ -8,9 +8,13 @@ public class Film {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
+    @Column(name = "title")
     private String title;
+    @Column(name = "director")
     private String director;
+    @Column(name = "length")
     private int length;
 
     public Film() {
@@ -53,5 +57,15 @@ public class Film {
 
     public void setLength(int length) {
         this.length = length;
+    }
+
+    @Override
+    public String toString() {
+        return "Film{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", director='" + director + '\'' +
+                ", length=" + length +
+                '}';
     }
 }
