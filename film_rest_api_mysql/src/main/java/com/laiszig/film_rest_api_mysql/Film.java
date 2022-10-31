@@ -16,15 +16,18 @@ public class Film {
     private String director;
     @Column(name = "length")
     private int length;
+    @Column(name = "genre")
+    private String genre;
 
     public Film() {
     }
 
-    public Film(int id, String title, String director, int length) {
+    public Film(int id, String title, String director, int length, String genre) {
         this.id = id;
         this.title = title;
         this.director = director;
         this.length = length;
+        this.genre = genre;
     }
 
     public int getId() {
@@ -57,6 +60,14 @@ public class Film {
 
     public void setLength(int length) {
         this.length = length;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     @Override
