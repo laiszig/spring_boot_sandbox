@@ -33,6 +33,18 @@ public class GameController {
     public ResponseEntity<Game> findGame(@PathVariable("id") Long id){
         return new ResponseEntity<>(gameService.getGameById(id), HttpStatus.OK);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Game> updateGame(@PathVariable("id") long id,
+                                           @RequestBody Game game) {
+        return new ResponseEntity<>(gameService.updateGame(game, id), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteGame(@PathVariable("id") long id) {
+        gameService.deleteGame(id);
+        return new ResponseEntity<>("Game deleted successfully!", HttpStatus.OK);
+    }
 }
 
 /*

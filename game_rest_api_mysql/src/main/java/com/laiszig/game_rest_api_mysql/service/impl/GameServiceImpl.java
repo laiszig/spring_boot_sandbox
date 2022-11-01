@@ -39,6 +39,28 @@ public class GameServiceImpl implements GameService {
         return gameRepository.findById(id).orElseThrow(() ->
                 new ResourceNotFoundException("Game", "Id", id));
     }
+
+    @Override
+    public Game updateGame(Game game, Long id) {
+        //check if game exists in DB
+        Game existingGame = gameRepository.findById(id).orElseThrow(() ->
+                new ResourceNotFoundException("Game", "Id", id));
+        existingGame.setTitle(game.getTitle());
+        existingGame.setYear(game.getYear());
+        existingGame.setPublisher(game.getPublisher());
+        existingGame.setPlatform(game.getPlatform());
+        //save existing game to DB
+        gameRepository.save(existingGame);
+        return existingGame;
+    }
+
+    @Override
+    public void deleteGame(long id) {
+        //check if game exists in DB
+        gameRepository.findById(id).orElseThrow(() ->
+                new ResourceNotFoundException("Game", "Id", id));
+        gameRepository.deleteById(id);
+    }
 }
 
 /*

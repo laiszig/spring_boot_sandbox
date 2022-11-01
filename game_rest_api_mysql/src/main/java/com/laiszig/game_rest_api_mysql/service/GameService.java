@@ -11,6 +11,10 @@ public interface GameService {
     List<Game> getAllGames();
 
     Game getGameById(Long id);
+
+    Game updateGame(Game game, Long id);
+
+    void deleteGame(long id);
 }
 
 
