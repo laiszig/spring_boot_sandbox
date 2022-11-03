@@ -17,7 +17,6 @@ public class BookController {
     public String getAllBooks(Model model) {
         List<Book> books = bookService.listAll();
         model.addAttribute("books", books);
-
         return "books";
     }
 

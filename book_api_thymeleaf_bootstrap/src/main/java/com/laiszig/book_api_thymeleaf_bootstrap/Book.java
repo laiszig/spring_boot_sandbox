@@ -16,8 +16,18 @@ public class Book {
     @Column(nullable = false, length = 45)
     private String author;
 
-    @Column(nullable = false, length = 45)
+    @Column(nullable = false, length = 4)
     private String year;
+
+    private Boolean enabled;
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
 
     public Integer getId() {
         return id;

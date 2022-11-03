@@ -9,7 +9,7 @@
 <div class="container-fluid text-center">
     <div><h2>Manage Books</h2></div>
     <div class="m-2">
-        <a class="h3" th:href="@{/users/new}">Add New Book</a>
+        <a class="h3" th:href="@{/books/new}">Add New Book</a>
     </div>
     <div>
         <table class="table table-bordered">
@@ -23,10 +23,10 @@
             </tr>
             </thead>
             <tbody>
-            <th:block th:each="book : ${listBooks}">
+            <th:block th:each="book : ${books}">
                 <tr>
                     <td>[[${book.id}]]</td>
-                    <td>[[${book.title]]</td>
+                    <td>[[${book.title}]]</td>
                     <td>[[${book.author}]]</td>
                     <td>[[${book.year}]]</td>
                     <td>
