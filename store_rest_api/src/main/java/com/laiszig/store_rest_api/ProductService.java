@@ -16,4 +16,16 @@ public class ProductService {
     public List<Product> listAll() {
         return productRepository.findAll();
     }
+
+    public void save(Product product) {
+        productRepository.save(product);
+    }
+
+    public Product get(Integer id) {
+       return productRepository.findById(id).get();
+    }
+
+    public void delete(Integer id) {
+        productRepository.deleteById(id);
+    }
 }
