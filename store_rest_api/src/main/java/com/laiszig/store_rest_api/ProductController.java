@@ -3,10 +3,7 @@ package com.laiszig.store_rest_api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -30,5 +27,26 @@ public class ProductController {
         } catch (NoSuchElementException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @PostMapping("/products")
+    public ResponseEntity<Product> add(@RequestBody Product product) {
+        productService.save(product);
+        return new ResponseEntity<>(product, HttpStatus.OK);
+    }
+
+    @PutMapping("/products/{id}")
+    public ResponseEntity<Product> update(@RequestBody Product product, @PathVariable Integer id) {
+        try {
+            Product existService = productService.get(id);
+            product.setId(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    public void delete(@PathVariable Integer id) {
+        productService.delete(id);
     }
 }
