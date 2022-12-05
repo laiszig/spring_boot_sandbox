@@ -9,6 +9,9 @@ import com.laiszig.spring_data_jpa_transaction_management.repository.PaymentInfo
 import com.laiszig.spring_data_jpa_transaction_management.utils.PaymentUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
@@ -21,6 +24,7 @@ public class FlightBookingService {
     @Autowired
     private PaymentInfoRepository paymentInfoRepository;
 
+    @Transactional(readOnly = false, isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED)
     public FlightBookingResponse bookFlightTicket (FlightBookingRequest request) {
 
         PassengerInfo passengerInfo = request.getPassengerInfo();
