@@ -56,5 +56,12 @@ Thymeleaf (Template engine)
 
 ------
 
-
+HandlerException Resolver
+- Handles unexpected exceptions
+- Programmatic approach to handle exceptions
+- Simple interface
+- Handles concrete exceptions
+- Programmatic approach to define a handler
+- Within @ControllerAdvice can handle exceptions for many controllers
+- Similar to methods annotated with @RequestMapping
 
