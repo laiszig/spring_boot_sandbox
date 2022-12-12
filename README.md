@@ -21,6 +21,7 @@ Spring Boot Reference Documentation - https://docs.spring.io/spring-boot/docs/cu
 * Thymeleaf
 * H2 db
 * Rest API
+* Spring Security
 
 ### Steps to run applications
 ```
