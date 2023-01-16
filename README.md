@@ -22,6 +22,7 @@ Spring Boot Reference Documentation - https://docs.spring.io/spring-boot/docs/cu
 * H2 db
 * Rest API
 * Spring Security
+* Exception Handling
 
 ### Steps to run applications
 ```
