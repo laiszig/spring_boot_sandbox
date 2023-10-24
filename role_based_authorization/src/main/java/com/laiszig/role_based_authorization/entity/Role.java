@@ -1,4 +1,4 @@
-package com.laiszig.role_based_authorization;
+package com.laiszig.role_based_authorization.entity;
 
 import javax.persistence.*;
 

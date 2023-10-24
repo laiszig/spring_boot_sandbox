@@ -1,5 +1,6 @@
-package com.laiszig.role_based_authorization;
+package com.laiszig.role_based_authorization.repository;
 
+import com.laiszig.role_based_authorization.entity.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
