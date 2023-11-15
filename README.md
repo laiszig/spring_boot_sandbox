@@ -8,21 +8,12 @@
 
 The intent of this repository is to create all kinds of Spring Boot Applications using as many technologies and tools as possible.
 
-Spring Boot Offical Web Page - https://spring.io/
+Apache POI Offical Web Page - https://poi.apache.org/
 
-Spring Boot Reference Documentation - https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#getting-help
+Apache POI Reference Documentation - https://poi.apache.org/apidocs/index.html
 
 ## Topics covered so far
-* Spring Web
-* JDBC
-* JPA
-* MySql
-* Spring Boot
-* Thymeleaf
-* H2 db
-* Rest API
-* Spring Security
-* Exception Handling
+* Workbook creation
 
 ### Steps to run applications
 ```
