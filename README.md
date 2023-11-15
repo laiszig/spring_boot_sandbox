@@ -6,7 +6,7 @@
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/laiszig/spring_boot_sandbox?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/laiszig/spring_boot_sandbox?style=for-the-badge)
 
-The intent of this repository is to create all kinds of Spring Boot Applications using as many technologies and tools as possible.
+The intent of this repository is to create Spring Boot Applications using Apache POI and as many of its features and tools as possible.
 
 Apache POI Offical Web Page - https://poi.apache.org/
 
