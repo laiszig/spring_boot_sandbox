@@ -12,4 +12,6 @@ public class FunRestController {
 
     @Value("${team.name}")
     private String teamName;
+
+
 }
