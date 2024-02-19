@@ -24,7 +24,16 @@ They are roughly grouped into the following categories
   - Base path for actuator endpoints
   management.endpoints.web.base-path=/actuator
 - Security
+  - default user name
+  spring.security.user.name=admin
+  spring.security.user.password=topsecret
 - Data
+  - JDBC URL of the database
+  spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce
+  - Login username of the database
+  spring.datasource.username=lais
+  - Login password of the database
+  spring.datasource.password=topsecret
 - Actuator
 - Integration
 - DevTools

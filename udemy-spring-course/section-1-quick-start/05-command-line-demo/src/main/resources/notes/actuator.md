@@ -41,5 +41,4 @@ What about security?
 - Add Spring security to project and endpoints are secure
 - you can customize spring security for spring boot actuator
 - use database for roles, encrypted passwords, etc
-- 
   www.luv2code.com/actuator-docs
