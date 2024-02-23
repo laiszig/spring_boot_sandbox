@@ -1,5 +1,6 @@
-package com.laizig.springcoredemo;
+package com.laizig.springcoredemo.rest;
 
+import com.laizig.springcoredemo.common.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
