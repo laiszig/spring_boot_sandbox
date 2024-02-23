@@ -12,8 +12,16 @@ public class DemoController {
     //define a private field for the dependency
     private Coach myCoach;
 
+//    @Autowired
+//    public DemoController(@Qualifier("baseballCoach") Coach theCoach) {
+//        myCoach = theCoach;
+//    }
+    //removed @Qualifier, so that we can use @Primary in the preferred class
+    //@Qualifier has a higher priority if I use
+    //@Qualifier is more specific too
+
     @Autowired
-    public DemoController(@Qualifier("baseballCoach") Coach theCoach) {
+    public DemoController(Coach theCoach) {
         myCoach = theCoach;
     }
 
